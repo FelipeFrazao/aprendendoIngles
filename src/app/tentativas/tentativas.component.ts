@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TentativasComponent implements OnInit {
 
+  public coracaoCheio: string = 'fa fa-heart fa-2x';
+  public coracaoVazio: string = 'fa fa-heart-o fa-2x';
   constructor() { }
 
   ngOnInit() {
