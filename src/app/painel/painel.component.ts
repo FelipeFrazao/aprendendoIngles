@@ -16,7 +16,7 @@ export class PainelComponent implements OnInit {
 
   // declaração de variaveis
   public frases: Frase [] = FRASES;
-  public resposta: string;
+  public resposta: string = '';
 
   public rodada: number = 0;
   public rodadaFrase: Frase;
@@ -24,7 +24,7 @@ export class PainelComponent implements OnInit {
   public progresso: number = 0;
 
   constructor() {
-    this.rodadaFrase = this.frases[this.rodada];
+    this.atualizaRodada();
   }
 
   ngOnInit() {
@@ -35,16 +35,30 @@ export class PainelComponent implements OnInit {
   }
   // Logica para verificar a resposta digitada
   public verificaResposta(): void {
+
     if (this.resposta === this.rodadaFrase.fraseBr) {
-      console.log('Você acertou meu chapa');
+
       // troca a rodada
       this.rodada++;
+
       // progresso
       this.progresso = this.progresso + (100 / this.frases.length);
+
       // atualiza a frase da rodada
-      this.rodadaFrase = this.frases[this.rodada];
+      this.atualizaRodada();
+
     } else {
       alert('errou meu chapa');
     }
 }
+
+  public atualizaRodada(): void {
+
+    // define a frase da rodada
+    this.rodadaFrase = this.frases[this.rodada];
+
+    // limpar o campo resposta
+    this.resposta = '';
+  }
+
 }
