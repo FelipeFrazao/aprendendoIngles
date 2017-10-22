@@ -11,14 +11,16 @@
     <div class="row">
       <div class="col">
         <h6>Traduza a frase:</h6>
-        <p>You are milf</p>
+        <p>{{rodadaFrase.fraseIng}}</p>
         <div class="form-group">
-          <textarea class="form-control" name="" cols="30" rows="3"></textarea>
+          <textarea
+            class="form-control" cols="30" rows="3"
+            (input)="pegaResposta($event)"></textarea>
         </div>
         <div class="row">
           <div class="col">
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary text-right">Verificar</button>
+              <button (click)="verificaResposta()" class="btn btn-primary text-right">Verificar</button>
             </div>
           </div>
         </div>
