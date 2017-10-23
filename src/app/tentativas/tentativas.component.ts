@@ -9,9 +9,25 @@ export class TentativasComponent implements OnInit {
 
   public coracaoCheio: string = 'fa fa-heart fa-2x';
   public coracaoVazio: string = 'fa fa-heart-o fa-2x';
-  constructor() { }
+
+  public coracoes: Coracao [] = [
+    new Coracao(true),  new Coracao(true), new Coracao(true)
+  ];
+  constructor() {}
 
   ngOnInit() {
   }
+}
 
+export class Coracao {
+  constructor(public cheio: boolean, public coracaoCheio: string = 'fa fa-heart fa-2x',
+              public coracaoVazio: string = 'fa fa-heart-o fa-2x') {}
+
+  public exibeCoracao(): string {
+    if (this.cheio) {
+      return this.coracaoCheio;
+    } else {
+      return this.coracaoVazio;
+    }
+      }
 }
