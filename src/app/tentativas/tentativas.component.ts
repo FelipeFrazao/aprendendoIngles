@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tentativas',
@@ -10,6 +10,7 @@ export class TentativasComponent implements OnInit {
   public coracaoCheio: string = 'fa fa-heart fa-2x';
   public coracaoVazio: string = 'fa fa-heart-o fa-2x';
 
+  @Input() public tentativas: number;
   public coracoes: Coracao [] = [
     new Coracao(true),  new Coracao(true), new Coracao(true)
   ];
