@@ -1,4 +1,1 @@
-
-  <i [class]="coracaoCheio" aria-hidden="true"></i>
-  <i [class]="coracaoCheio" aria-hidden="true"></i>
-  <i [class]="coracaoVazio" aria-hidden="true"></i>
+<i *ngFor="let coracao of coracoes"[class]="coracao.exibeCoracao()"></i>
