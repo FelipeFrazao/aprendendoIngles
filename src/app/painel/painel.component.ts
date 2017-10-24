@@ -55,7 +55,6 @@ export class PainelComponent implements OnInit {
       }
 
     } else {
-      alert('errou meu chapa');
       // reduzir uma vida
       this.tentativas --;
       this.tentativas === -1 ? this.encerrarJogo.emit('derrota') : console.log('nada');

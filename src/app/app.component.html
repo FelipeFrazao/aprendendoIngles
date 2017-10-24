@@ -1,3 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-topo></app-topo>
-<app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+<div *ngIf="jogoEmAndamento; else fimDeJogo">
+  <app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+</div>
+<ng-template #fimDeJogo>
+<div class="container m-5 p-5">
+  <div class="row">
+    <div class="col">
+      <div [class]="classe" role="alert">
+        {{mensagem}}
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template>

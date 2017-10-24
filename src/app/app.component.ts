@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public jogoEmAndamento: boolean = true;
+  public mensagem: string ;
+  public classe: string ;
+
+
   public encerrarJogo(tipo: string): void {
+    this.jogoEmAndamento = false;
     if (tipo === 'derrota') {
-      alert('você se fudeu');
+      this.mensagem = 'Você perdeu meu chapa';
+      this.classe = 'alert alert-danger';
     } else {
-      alert('parabens');
+      this.mensagem = 'Parabéns, você conseguiu!!!';
+      this.classe = 'alert alert-success';
     }
   }
 }
