@@ -8,8 +8,11 @@
   <div class="row">
     <div class="col">
       <div [class]="classe" role="alert">
-        {{mensagem}}
+        <h4>{{mensagem}}</h4>
       </div>
+      <button class="btn btn-outline-primary" (click)="reinicia()">
+        Jogar novamente
+      </button>
     </div>
   </div>
 </div>

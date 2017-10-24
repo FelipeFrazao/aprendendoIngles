@@ -21,6 +21,7 @@ export class PainelComponent implements OnInit {
   public rodada: number = 0;
   public rodadaFrase: Frase;
 
+  // Inicia a barra de progresso com 0
   public progresso: number = 0;
 
   public tentativas: number = 3;
@@ -44,7 +45,7 @@ export class PainelComponent implements OnInit {
       // troca a rodada
       this.rodada++;
 
-      // progresso
+      // Aumenta a barra de progresso de acordo com a rodada
       this.progresso = this.progresso + (100 / this.frases.length);
 
       if (this.rodada === 4) {
@@ -57,7 +58,9 @@ export class PainelComponent implements OnInit {
     } else {
       // reduzir uma vida
       this.tentativas --;
-      this.tentativas === -1 ? this.encerrarJogo.emit('derrota') : console.log('nada');
+      if (this.tentativas === -1) {
+        this.encerrarJogo.emit('derrota');
+      }
     }
   }
 

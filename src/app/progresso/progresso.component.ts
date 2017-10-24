@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProgressoComponent implements OnInit {
 
+  // Recebe o valor da barra de progresso
  @Input() public progresso: number = 0;
   constructor() { }
 
