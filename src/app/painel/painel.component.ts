@@ -1,5 +1,5 @@
 // Importando componentes e modulos
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { Frase } from '../shared/frase.model';
 import { FRASES } from './frases-mock';
@@ -25,6 +25,8 @@ export class PainelComponent implements OnInit {
 
   public tentativas: number = 3;
 
+  @Output() public encerrarJogo: EventEmitter<string> = new EventEmitter();
+
   constructor() {
     this.atualizaRodada();
   }
@@ -45,14 +47,18 @@ export class PainelComponent implements OnInit {
       // progresso
       this.progresso = this.progresso + (100 / this.frases.length);
 
-      // atualiza a frase da rodada
-      this.atualizaRodada();
+      if (this.rodada === 4) {
+        this.encerrarJogo.emit('vitoria');
+      } else {
+        // atualiza a frase da rodada
+        this.atualizaRodada();
+      }
 
     } else {
       alert('errou meu chapa');
       // reduzir uma vida
       this.tentativas --;
-      this.tentativas === -1 ? alert('Você perdeu') : console.log('nada');
+      this.tentativas === -1 ? this.encerrarJogo.emit('derrota') : console.log('nada');
     }
   }
 
